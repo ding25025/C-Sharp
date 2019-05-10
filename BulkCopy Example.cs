@@ -4,6 +4,7 @@
         {
             //convert to datatable
             DataTable dt = clsdt.ToDataTable(data, true);
+
             try
             {
                 var columnMapping = new List<string>();
@@ -15,6 +16,7 @@
                 columnMapping.Add("SourceFile,SourceFile");
                 columnMapping.Add("Multiple,Multiple");
                 columnMapping.Add("Status,Status");
+
                 msg = clsdt.BulkInsert(dt, "Source", columnMapping);
             }
             catch (Exception ex)
@@ -27,7 +29,7 @@
         }
    #endregion
 
-    //Bulkinsert Class
+    //Bulkinsert 
         public ResultMsg BulkInsert(DataTable dt, String TableName, List<string> columnMapping)
         {
             ResultMsg msg = new ResultMsg();
@@ -73,7 +75,7 @@
             return msg;
         }
 
-        //List to dttable  Class
+        //List to dttable  
 
          public DataTable ToDataTable<T>(List<T> items,Boolean IsFilter=false)
         {
